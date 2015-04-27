@@ -7,23 +7,30 @@
   <link rel="stylesheet" href="css/app.css" />
 </head>
 <body ng-controller="AppCtrl">
-  <div class="container">
+  <div class="container main">
     <div class="navbar navbar-default">
       <a class="navbar-brand" href="#">Dabbble</a>
       <ul class="nav navbar-nav">
       </ul>
     </div>
-  <div class="row" ng-controller="ShotsListCtrl">
-    <div class="col-xs-6 col-md-3" ng-repeat="shot in list">
-      <div class="thumbnail">
-        <a href="#/shots/{{shot.id}}">
-          <img ng-src="{{shot.images.teaser}}">
-        </a>
-        <strong class="title">{{shot.title}}</strong>
-        </br>
-        <a href="#/player/{{shot.user.name}}">
-          {{shot.user.name}}
-        </a>
+
+    <div class="row" ng-controller="ShotsListCtrl">
+      <div class="col-xs-6 col-md-3" ng-repeat="shot in list">
+        <div class="thumbnail">
+          <a href="#/shots/{{shot.id}}">
+            <img ng-src="{{shot.images.teaser}}">
+          </a>
+          <strong class="title">{{shot.title}}</strong>
+          </br>
+          <a href="#/player/{{shot.user.name}}">
+            {{shot.user.name}}
+          </a>
+          <div class="stats">
+            <span class="stat glyphicon glyphicon-eye-open"></span>{{shot.views_count}}
+            <span class="stat glyphicon glyphicon-comment"></span>{{shot.comments_count}}
+            <span class="stat glyphicon glyphicon-heart"></span>{{shot.likes_count}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
