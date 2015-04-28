@@ -4,11 +4,14 @@
       <a href="#/shots/{{shot.id}}">
         <img ng-src="{{shot.images.teaser}}">
       </a>
-      <strong class="title">{{shot.title}}</strong>
-      </br>
+      <div class="trunc">
+      <strong>{{shot.title}}</strong>
+    </div>
+    <div class="trunc">
       <a href="#/player/{{shot.user.name}}">
         {{shot.user.name}}
       </a>
+    </div>
       <div class="stats">
         <span class="stat glyphicon glyphicon-eye-open"></span>{{shot.views_count}}
         <span class="stat glyphicon glyphicon-comment"></span>{{shot.comments_count}}

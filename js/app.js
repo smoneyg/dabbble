@@ -8,6 +8,7 @@ app.constant("myConfig", {
 
 app.config(function($routeProvider){
   $routeProvider
-  .when("/:list", {controller:"ShotsListCtrl", templateUrl: "partials/shots_list.html"})
+  .when("/shots/:id", {controller:"ShotsCtrl", templateUrl: "partials/shot.html"})
+  .when("/shots", {controller:"ShotsListCtrl", templateUrl: "partials/shots_list.html"})
   .otherwise({redirectTo: "/shots"});
 });
