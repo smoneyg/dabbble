@@ -1,6 +1,6 @@
 'use_strict';
 
-var app = angular.module("dabbble", ["dabbble.controllers", 'ngRoute']);
+var app = angular.module("dabbble", ["dabbble.controllers", 'ngRoute', 'ngSanitize', 'angularMoment']);
 
 app.constant("myConfig", {
   "access_token": [YOUR_DRIBBBLE_ACCESS_TOKEN]

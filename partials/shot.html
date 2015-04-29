@@ -1,3 +1,63 @@
-<div>
-  shot.id
+<div class="media shot_header">
+  <div class="pull-left">
+    <img class="media-object" ng-src="{{shot.user.avatar_url}}">
+  </div>
+  <div class="media-body">
+    <h1>{{shot.title}}</h1>
+    <span class="muted">by</span>
+    <a href="{{shot.user.html_url}}">
+      {{shot.user.name}}
+    </a>
+    |
+     {{shot.created_at | date:"MMM d, yyyy"}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <img class="shot_image" ng-src="{{shot.images.normal}}">
+
+    <div class="page-header comments">
+      <h4>{{shot.comments_count}} Comments</h4>
+    </div>
+    <ol class="list-group">
+      <div ng-repeat="comment in comments" class="media comment">
+        <li class="list-group-item">
+          <div class="media">
+            <div class="media-left">
+              <img class="media-object img_comment" ng-src="{{comment.user.avatar_url}}">
+            </div>
+            <div class="media-body">
+              <strong>
+                <a class="media-heading" href="#/players/{{comment.user.username}}">
+                  {{comment.user.name}}
+                </a>
+              </strong>
+              <p ng-bind-html="comment.body"></p>
+              <div class="comment-date pull-right text-muted"><span am-time-ago="comment.created_at"></span></div>
+            </div>
+          </div>
+        </li>
+      </div>
+    </ol>
+    <!--
+      <button
+        class="btn btn-primary"
+        ng-show="{{comments.page < comments.pages}}"
+        ng-click="{{comments.loadNextPage()}}">
+        Load More Comments
+      </button>
+    </div>-->
+  </div>
+  <div class="col-md-3">
+    <ul class="nav nav-list">
+      <li><span class="glyphicon glyphicon-eye-open"></span> {{shot.views_count}} views</li>
+      <li><span class="glyphicon glyphicon-heart"></span> {{shot.likes_count}} likes</li>
+      <li>
+        <a id="dribble-page-link" href="{{shot.html_url}}">
+          <span class="glyphicon glyphicon-globe"></span> Dribble page
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

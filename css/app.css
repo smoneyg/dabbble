@@ -1,3 +1,14 @@
+.text-muted{
+  font-size: 0.75em;
+}
+.list-group-item{
+  background-color: transparent;
+}
+
+body {
+  background-color: #D3D3D3;
+}
+
 .main{
   width: 75%;
 }
@@ -43,8 +54,17 @@
   height: 60px;
 }
 
+.img_comment {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
 
-.comment img {
-  height: 60px;
-  width: 60px;
+#dribble-page-link {
+  padding: 0;
+}
+
+#dribble-page-link:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }
