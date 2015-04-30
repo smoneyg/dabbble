@@ -9,18 +9,28 @@ controllers.controller("AppCtrl", function($scope){
 controllers.controller("ShotsListCtrl", function($scope, $routeParams, dribbble){
   dribbble.list($routeParams.list).success(
     function(data, status, headers, config){
-            $scope.list = data;
+      $scope.list = data;
     });
 });
 
 controllers.controller("ShotsCtrl", function($scope, $routeParams, dribbble){
+
   dribbble.shot($routeParams.id).success(
     function(data, status, headers, config){
-            $scope.shot = data;
+      $scope.shot = data;
     });
 
-    dribbble.comments($routeParams.id).success(
-      function(data, status, headers, config){
-              $scope.comments = data;
-      });
+  dribbble.comments($routeParams.id).success(
+    function(data, status, headers, config){
+      $scope.comments = data;
+    });
+
+  $scope.getImgfUrl = function(imgUrl) {
+    if(imgUrl != undefined && imgUrl.endsWith("_1x.gif")){
+      return imgUrl.replace("_1x.gif", ".gif");
+    }
+    else{
+      return imgUrl;
+    }
+  };
 });

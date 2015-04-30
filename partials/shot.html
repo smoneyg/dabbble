@@ -15,7 +15,7 @@
 
 <div class="row">
   <div class="col-md-6">
-    <img class="shot_image" ng-src="{{shot.images.normal}}">
+    <img class="shot_image" ng-src="{{getImgfUrl(shot.images.normal)}}">
 
     <div class="page-header comments">
       <h4>{{shot.comments_count}} Comments</h4>
@@ -55,7 +55,7 @@
       <li><span class="glyphicon glyphicon-heart"></span> {{shot.likes_count}} likes</li>
       <li>
         <a id="dribble-page-link" href="{{shot.html_url}}">
-          <span class="glyphicon glyphicon-globe"></span> Dribble page
+          <span class="glyphicon glyphicon-globe"></span> Dribbble page
         </a>
       </li>
     </ul>
