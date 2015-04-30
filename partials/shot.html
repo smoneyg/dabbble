@@ -14,8 +14,8 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6">
-    <img class="shot_image" ng-src="{{getImgfUrl(shot.images.normal)}}">
+  <div class="col-md-7">
+    <img class="shot_image" ng-src="{{getImgUrl(shot.images.normal)}}">
 
     <div class="page-header comments">
       <h4>{{shot.comments_count}} Comments</h4>
@@ -40,16 +40,8 @@
         </li>
       </div>
     </ol>
-    <!--
-      <button
-        class="btn btn-primary"
-        ng-show="{{comments.page < comments.pages}}"
-        ng-click="{{comments.loadNextPage()}}">
-        Load More Comments
-      </button>
-    </div>-->
   </div>
-  <div class="col-md-3">
+  <div class="col-md-5">
     <ul class="nav nav-list">
       <li><span class="glyphicon glyphicon-eye-open"></span> {{shot.views_count}} views</li>
       <li><span class="glyphicon glyphicon-heart"></span> {{shot.likes_count}} likes</li>

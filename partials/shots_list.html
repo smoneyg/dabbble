@@ -20,3 +20,11 @@
     </div>
   </div>
 </div>
+<div class="row wrapper-btn">
+  <div class="col-md-6">
+    <button class="pull-right btn" ng-click="loadPreviousPage()" ng-hide="{{page == undefined || page == 1}}"> << </button>
+  </div>
+  <div class="col-md-6">
+    <button class="pull-left btn" ng-click="loadNextPage()"> >> </button>
+  </div>
+</div>

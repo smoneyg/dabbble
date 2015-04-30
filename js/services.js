@@ -8,13 +8,14 @@ services.constant("myConfig", {
 
 services.factory('dribbble', function($http, myConfig){
     return {
-      list: function(type){
+      list: function(params){
               return $http({
                   url: "https://api.dribbble.com/v1/shots",
                   method: "GET",
                   params: {
                   access_token: myConfig.access_token,
-                  list: type
+                  list: params.list,
+                  page: params.page
                     }
                 });
       },
