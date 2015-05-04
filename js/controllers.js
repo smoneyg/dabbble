@@ -48,16 +48,32 @@ controllers.controller("ShotsListCtrl", function($scope, $routeParams, $location
 });
 
 controllers.controller("ShotsCtrl", function($scope, $routeParams, dribbble){
+  $scope.loadedComments = 0;
+
+  function getNextCommentsPage(){
+    return $routeParams.page == undefined ? 2 : parseInt($routeParams.page) + 1;
+  }
 
   dribbble.shot($routeParams.id).success(
     function(data, status, headers, config){
       $scope.shot = data;
     });
 
-  dribbble.comments($routeParams.id).success(
+  dribbble.comments($routeParams).success(
     function(data, status, headers, config){
+      $scope.loadedComments = $scope.loadedComments + data.length;
       $scope.comments = data;
     });
+
+  $scope.loadNextComments = function(){
+    var pageNo = getNextCommentsPage();
+    dribbble.comments({id: $routeParams.id, page: pageNo}).success(
+      function(data, status, headers, config){
+        $routeParams.page = pageNo;
+        $scope.loadedComments = $scope.loadedComments + data.length;
+        $scope.comments.push.apply($scope.comments, data);
+      });
+  };
 
   $scope.getImgUrl = function(imgUrl) {
     if(imgUrl != undefined && imgUrl.endsWith("_1x.gif")){

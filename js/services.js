@@ -29,12 +29,13 @@ services.factory('dribbble', function($http, myConfig){
                     }
                 });
       },
-      comments: function(id){
+      comments: function(params){
                   return $http({
-                      url: "https://api.dribbble.com/v1/shots/" + id + "/comments",
+                      url: "https://api.dribbble.com/v1/shots/" + params.id + "/comments",
                       method: "GET",
                       params: {
-                      access_token: myConfig.access_token
+                      access_token: myConfig.access_token,
+                      page: params.page
                         }
                     });
       }

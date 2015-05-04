@@ -40,6 +40,13 @@
         </li>
       </div>
     </ol>
+    <div class="row wrapper-btn text-center">
+      <div>
+        <button class="btn"
+        ng-click="loadNextComments()" 
+        ng-hide="loadedComments == shot.comments_count"> More comments </button>
+      </div>
+    </div>
   </div>
   <div class="col-md-5">
     <ul class="nav nav-list">
